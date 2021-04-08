@@ -1,26 +1,35 @@
 # 概要
-Reactで作成した自己紹介サイトです。
+TypeScript/Reactで作成した自己紹介サイトです。
+URL:[https://zuno.gq/](https://zuno.gq/)
 
 # 工夫した点
 - Atomicデザインを意識したコンポーネント設計
-- スキル欄にフィルダー機能を追加
+- スキル欄にフィルター機能を追加
+- SSL/TLS設定
 
 # 使用技術
-- react
-- typescript
+- React
+- TypeScript
 - styled-components
-- eslint
-- prettier
-- stylelint
+- ESLint
+- Prettier
+- StyleLint
 
-## 使用エディタ
-- vscode
+# 使用エディタ
+- Visual Studio Code
 
-## 仮想環境
+# 仮想環境
 - nodenv
 
+# リリース環境
+- Ubuntu Server
+- Docker
+- Docker-compose
+- NGINX
+- Let's Encrypt
+
 # 今後の課題
-- コンポーネント設計のリファクタリング
+- コンポーネント設計のリファクタリング（propsの整理）
 - レスポンシブデザインの対応
 - テストコードの追加
 - コンテンツの追加（Works、Contactなど）
