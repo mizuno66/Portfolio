@@ -81,7 +81,7 @@ const Main: FC = () => {
         {
           type: 'LANG',
           skillName: 'C#',
-          experience: '1年',
+          experience: '2年',
         },
         {
           type: 'LANG',
