@@ -8,6 +8,7 @@ import FilterButtonList, {
   ButtonProps,
 } from 'components/molecules/FilterButtonList';
 import { CommonProps } from 'types/CommonProps';
+import { useMediaQueryContext } from 'components/provider/MediaQueryProvider';
 
 export type Props = {
   skillCards: SkillCardProps[];
@@ -37,6 +38,7 @@ const ListStyle = styled.div`
 const Skill: FC<Props & CommonProps> = (props: Props & CommonProps) => {
   const { skillCards, width, margin } = props;
   const [procSkillCards, setProcSkillCards] = useState(skillCards);
+  const { isMobileSite, isTabletSite, isPcSite } = useMediaQueryContext();
 
   const buttons: ButtonProps[] = [
     {
@@ -94,16 +96,39 @@ const Skill: FC<Props & CommonProps> = (props: Props & CommonProps) => {
         <Title margin="0 0 40px 0" text="Skill" />
         <FilterButtonList items={buttons} onClick={onClick} />
         <ListStyle>
-          {procSkillCards.map((skillCard) => (
-            <SkillCard
-              key={skillCard.skillName}
-              type={skillCard.type}
-              skillName={skillCard.skillName}
-              experience={skillCard.experience}
-              width="28%"
-              margin="10px"
-            />
-          ))}
+          {isMobileSite &&
+            procSkillCards.map((skillCard) => (
+              <SkillCard
+                key={skillCard.skillName}
+                type={skillCard.type}
+                skillName={skillCard.skillName}
+                experience={skillCard.experience}
+                width="80%"
+                margin="10px"
+              />
+            ))}
+          {isTabletSite &&
+            procSkillCards.map((skillCard) => (
+              <SkillCard
+                key={skillCard.skillName}
+                type={skillCard.type}
+                skillName={skillCard.skillName}
+                experience={skillCard.experience}
+                width="40%"
+                margin="10px"
+              />
+            ))}
+          {isPcSite &&
+            procSkillCards.map((skillCard) => (
+              <SkillCard
+                key={skillCard.skillName}
+                type={skillCard.type}
+                skillName={skillCard.skillName}
+                experience={skillCard.experience}
+                width="28%"
+                margin="10px"
+              />
+            ))}
         </ListStyle>
       </InnerStyle>
     </SectionStyle>

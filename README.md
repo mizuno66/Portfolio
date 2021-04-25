@@ -18,18 +18,18 @@ URL:[https://zuno.gq/](https://zuno.gq/)
 # 使用エディタ
 - Visual Studio Code
 
-# 仮想環境
+# 開発環境
 - nodenv
 
 # リリース環境
 - Ubuntu Server
 - Docker
 - Docker-compose
-- NGINX
+- Nginx
 - Let's Encrypt
 
 # 今後の課題
 - コンポーネント設計のリファクタリング（propsの整理）
-- レスポンシブデザインの対応
+- AWSへのデプロイ
 - テストコードの追加
 - コンテンツの追加（Works、Contactなど）

@@ -4,6 +4,7 @@ services:
         build: 
             context: .
             dockerfile: NodeDockerfile
+        command: "sleep infinity"
         volumes:
             - ./build:/usr/src/app/build
     nginx:

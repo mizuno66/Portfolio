@@ -21,6 +21,7 @@ const TextStyle = styled.p<{
   font-size: ${(props) => props.size};
   font-weight: ${(props) => props.fontweight};
   color: ${(props) => props.color};
+  word-break: break-all;
 `;
 
 const Text: FC<Props & CommonProps> = (props: Props & CommonProps) => {

@@ -34,7 +34,7 @@ const Navigation: FC<Props & CommonProps> = (props: Props & CommonProps) => {
           identifier={item.identifier}
           text={item.text}
           onClick={onClick}
-          margin="10px"
+          margin="0.3em"
           size={`${Size.FONT.NORMAL}px`}
           color={Color.WHITE}
           backgroundcolor={Color.SECONDARY}
