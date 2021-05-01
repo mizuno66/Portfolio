@@ -1,40 +1,25 @@
 import React, { FC } from 'react';
-import Text from 'components/atoms/Text';
+import Text, { Props as TextProps } from 'components/atoms/Text';
 import styled from 'styled-components';
-import { CommonProps } from 'types/CommonProps';
-
-type TextProps = {
-  text: string;
-  size: string;
-  color: string;
-};
+import { StyleProps } from 'types/StyleProps';
 
 export type Props = {
-  texts: TextProps[];
+  texts: (TextProps & { fontsize: string })[];
 };
 
-const DivStyle = styled.div<{
-  width?: string;
-  margin?: string;
-}>`
+const DivStyle = styled.div<StyleProps>`
   width: ${(props) => props.width};
   margin: ${(props) => props.margin};
   text-align: left;
 `;
 
-const AboutBody: FC<Props & CommonProps> = (props: Props & CommonProps) => {
-  const { texts, width, margin } = props;
+const AboutBody: FC<Props & StyleProps> = (props: Props & StyleProps) => {
+  const { texts, ...aboutProps } = props;
 
   return (
-    <DivStyle width={width} margin={margin}>
+    <DivStyle {...aboutProps}>
       {texts.map((text) => (
-        <Text
-          key={text.text}
-          size={text.size}
-          color={text.color}
-          margin="0 0 1em 0"
-          text={text.text}
-        />
+        <Text margin="0 0 1em 0" {...text} />
       ))}
     </DivStyle>
   );

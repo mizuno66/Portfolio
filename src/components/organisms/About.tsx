@@ -5,17 +5,14 @@ import LinkList, {
   Props as LinkListProps,
 } from 'components/molecules/LinkList';
 import Title from 'components/atoms/Title';
-import { CommonProps } from 'types/CommonProps';
+import { StyleProps } from 'types/StyleProps';
 
 export interface Props {
   aboutBody: AboutProps;
   linkList: LinkListProps;
 }
 
-const SectionStyle = styled.section<{
-  width?: string;
-  margin?: string;
-}>`
+const SectionStyle = styled.section<StyleProps>`
   width: ${(props) => props.width};
   padding: 80px 0;
   margin: ${(props) => props.margin};
@@ -27,11 +24,11 @@ const DivStyle = styled.div`
   text-align: center;
 `;
 
-const About: FC<Props & CommonProps> = (props: Props & CommonProps) => {
-  const { aboutBody, linkList, width, margin } = props;
+const About: FC<Props & StyleProps> = (props: Props & StyleProps) => {
+  const { aboutBody, linkList, ...sectionProps } = props;
 
   return (
-    <SectionStyle id="About" width={width} margin={margin}>
+    <SectionStyle id="About" {...sectionProps}>
       <Title margin="0 0 40px 0" text="About" />
       <DivStyle>
         <AboutBody texts={aboutBody.texts} margin="20px 0" />

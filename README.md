@@ -29,7 +29,7 @@ URL:[https://zuno.gq/](https://zuno.gq/)
 - Let's Encrypt
 
 # 今後の課題
-- コンポーネント設計のリファクタリング（propsの整理）
+- バックエンド追加
 - AWSへのデプロイ
 - テストコードの追加
 - コンテンツの追加（Works、Contactなど）

@@ -3,16 +3,13 @@ import styled from 'styled-components';
 import NavItem, { Props as NavItemProps } from 'components/molecules/NavItem';
 import Size from 'const/Size';
 import Color from 'const/Color';
-import { CommonProps } from 'types/CommonProps';
+import { StyleProps } from 'types/StyleProps';
 
 export type Props = {
   items: NavItemProps[];
 };
 
-const NavStyle = styled.nav<{
-  width?: string;
-  margin?: string;
-}>`
+const NavStyle = styled.nav<StyleProps>`
   position: sticky;
   top: 0;
   z-index: 1;
@@ -29,11 +26,11 @@ const UlStyle = styled.ul`
   list-style: none;
 `;
 
-const Navigation: FC<Props & CommonProps> = (props: Props & CommonProps) => {
-  const { items, width, margin } = props;
+const Navigation: FC<Props & StyleProps> = (props: Props & StyleProps) => {
+  const { items, ...navProps } = props;
 
   return (
-    <NavStyle width={width} margin={margin}>
+    <NavStyle {...navProps}>
       <UlStyle>
         {items.map((item) => (
           <NavItem

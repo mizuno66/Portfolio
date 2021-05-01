@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Text from 'components/atoms/Text';
 import Size from 'const/Size';
 import Color from 'const/Color';
-import { CommonProps } from 'types/CommonProps';
+import { StyleProps } from 'types/StyleProps';
 
 export type Props = {
   type: 'LANG' | 'FW' | 'RDB' | 'OTHER';
@@ -11,10 +11,7 @@ export type Props = {
   experience: string;
 };
 
-const CardStyle = styled.div<{
-  margin?: string;
-  width?: string;
-}>`
+const CardStyle = styled.div<StyleProps>`
   width: ${(props) => props.width};
   padding: 8px;
   margin: ${(props) => props.margin};
@@ -22,7 +19,7 @@ const CardStyle = styled.div<{
   border-radius: 5px;
 `;
 
-const SkillCard: FC<Props & CommonProps> = (props: Props & CommonProps) => {
+const SkillCard: FC<Props & StyleProps> = (props: Props & StyleProps) => {
   const { margin, width, experience, skillName } = props;
 
   const experienceStr = `経験年数：${experience}`;
@@ -32,14 +29,14 @@ const SkillCard: FC<Props & CommonProps> = (props: Props & CommonProps) => {
       <Text
         text={skillName}
         margin="0 0 10px 0"
-        size={`${Size.FONT.LARGE}px`}
+        fontsize={`${Size.FONT.LARGE}px`}
         color={Color.BLACK}
-        fontWeight="bold"
+        fontweight="bold"
       />
       <Text
         text={experienceStr}
         margin="0 0 0 1em"
-        size={`${Size.FONT.NORMAL}px`}
+        fontsize={`${Size.FONT.NORMAL}px`}
         color={Color.BLACK}
       />
     </CardStyle>

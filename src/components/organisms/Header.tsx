@@ -3,16 +3,13 @@ import styled from 'styled-components';
 import HeaderTitle, {
   Props as HeaderProps,
 } from 'components/molecules/HeaderTitle';
-import { CommonProps } from 'types/CommonProps';
+import { StyleProps } from 'types/StyleProps';
 
 export type Props = {
   header: HeaderProps;
 };
 
-const HeaderStyle = styled.header<{
-  width?: string;
-  margin?: string;
-}>`
+const HeaderStyle = styled.header<StyleProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,18 +19,12 @@ const HeaderStyle = styled.header<{
   text-align: center;
 `;
 
-const Header: FC<Props & CommonProps> = (props: Props & CommonProps) => {
-  const { header, margin, width } = props;
+const Header: FC<Props & StyleProps> = (props: Props & StyleProps) => {
+  const { header, ...headerProps } = props;
 
   return (
-    <HeaderStyle margin={margin} width={width}>
-      <HeaderTitle
-        mainTitle={header.mainTitle}
-        mainColor={header.mainColor}
-        subTitle={header.subTitle}
-        subColor={header.subColor}
-        sizeByPx={header.sizeByPx}
-      />
+    <HeaderStyle {...headerProps}>
+      <HeaderTitle {...header} />
     </HeaderStyle>
   );
 };

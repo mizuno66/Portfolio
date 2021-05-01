@@ -35,30 +35,30 @@ const Main: FC = () => {
         texts: [
           {
             text: 'はじめまして、1996年生まれの中村と申します。',
-            size: `${Size.FONT.NORMAL}px`,
+            fontsize: `${Size.FONT.NORMAL}px`,
             color: Color.BLACK,
           },
           {
             text:
               '情報系の専門学校を卒業し、新卒で独立系のSierへ入社しました。客先常駐で中小規模の開発・保守を行い、.Net系を中心に経験してきました。',
-            size: `${Size.FONT.NORMAL}px`,
+            fontsize: `${Size.FONT.NORMAL}px`,
             color: Color.BLACK,
           },
           {
             text:
               'これまではレガシーな技術を使うことが多かったですが、効率的に開発ができるモダンな技術に関わっていきたいと考え、最近は独学にてTypescript/React、Python/Djangoを勉強しています。本ページはReactで作成しました。',
-            size: `${Size.FONT.NORMAL}px`,
+            fontsize: `${Size.FONT.NORMAL}px`,
             color: Color.BLACK,
           },
           {
             text:
               '保有資格は「応用情報技術者」と「Python3 エンジニア認定基礎試験」です。',
-            size: `${Size.FONT.NORMAL}px`,
+            fontsize: `${Size.FONT.NORMAL}px`,
             color: Color.BLACK,
           },
           {
             text: '（2021年4月現在）',
-            size: `${Size.FONT.NORMAL}px`,
+            fontsize: `${Size.FONT.NORMAL}px`,
             color: Color.BLACK,
           },
         ],
@@ -67,11 +67,11 @@ const Main: FC = () => {
         items: [
           {
             href: 'https://github.com/mizuno66',
-            text: 'Github',
+            children: 'Github',
           },
           {
             href: 'https://qiita.com/ZuNo',
-            text: 'Qiita',
+            children: 'Qiita',
           },
         ],
       },

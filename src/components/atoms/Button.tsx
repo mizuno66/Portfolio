@@ -1,26 +1,18 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { CommonProps } from 'types/CommonProps';
+import { StyleProps } from 'types/StyleProps';
 
-type Props = {
-  identifier: string;
-  backgroundcolor: string;
-  color: string;
-  text: string;
-  size: string;
-  onClick: (e: React.MouseEvent<HTMLElement>) => void;
+type ButtonProps = Omit<JSX.IntrinsicElements['button'], 'ref'>;
+
+export type Props = ButtonProps & {
+  children: React.ReactNode;
 };
 
-const ButtonStyle = styled.button<{
-  backgroundcolor: string;
-  color: string;
-  size: string;
-  margin?: string;
-}>`
+const ButtonStyle = styled.button<StyleProps>`
   display: inline-block;
   padding: 0.5em 1em;
   margin: ${(props) => props.margin};
-  font-size: ${(props) => props.size};
+  font-size: ${(props) => props.fontsize};
   color: ${(props) => props.color};
   text-decoration: none;
   background: ${(props) => props.backgroundcolor};
@@ -34,29 +26,9 @@ const ButtonStyle = styled.button<{
   }
 `;
 
-const Button: FC<Props & CommonProps> = (props: Props & CommonProps) => {
-  const {
-    identifier,
-    backgroundcolor,
-    color,
-    size,
-    text,
-    margin,
-    onClick,
-  } = props;
+const Button: FC<Props & StyleProps> = (props: Props & StyleProps) => {
+  const { children, ...button } = props;
 
-  return (
-    <ButtonStyle
-      backgroundcolor={backgroundcolor}
-      color={color}
-      size={size}
-      margin={margin}
-      onClick={onClick}
-      data-identifier={identifier}
-    >
-      {text}
-    </ButtonStyle>
-  );
+  return <ButtonStyle {...button}>{children}</ButtonStyle>;
 };
-
 export default Button;

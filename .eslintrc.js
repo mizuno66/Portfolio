@@ -100,6 +100,7 @@ module.exports = {
         classPropertiesAllowed: false,
       },
     ],
+    'react/jsx-props-no-spreading': 'off',
   },
   overrides: [
     {

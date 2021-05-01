@@ -1,47 +1,40 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import Button from 'components/atoms/Button';
+import Button, { Props as ButtonProps } from 'components/atoms/Button';
 import Size from 'const/Size';
 import Color from 'const/Color';
-import { CommonProps } from 'types/CommonProps';
+import { StyleProps } from 'types/StyleProps';
 
-export type ButtonProps = {
-  identifier: string;
-  text: string;
-};
-
-type Props = {
+export type Props = {
   items: ButtonProps[];
-  onClick: (e: React.MouseEvent<HTMLElement>) => void;
 };
 
-const DivStyle = styled.div<{
-  width?: string;
-  margin?: string;
-}>`
+const DivStyle = styled.div<StyleProps>`
   width: ${(props) => props.width};
   margin: ${(props) => props.margin};
 `;
 
-const Navigation: FC<Props & CommonProps> = (props: Props & CommonProps) => {
-  const { items, onClick, width, margin } = props;
+const FilterButtonList: FC<Props & StyleProps> = (
+  props: Props & StyleProps,
+) => {
+  const { items, ...divProps } = props;
 
   return (
-    <DivStyle width={width} margin={margin}>
+    <DivStyle {...divProps}>
       フィルター：
       {items.map((item) => (
         <Button
-          identifier={item.identifier}
-          text={item.text}
-          onClick={onClick}
+          {...item}
           margin="0.3em"
-          size={`${Size.FONT.NORMAL}px`}
+          fontsize={`${Size.FONT.NORMAL}px`}
           color={Color.WHITE}
           backgroundcolor={Color.SECONDARY}
-        />
+        >
+          {item.children}
+        </Button>
       ))}
     </DivStyle>
   );
 };
 
-export default Navigation;
+export default FilterButtonList;

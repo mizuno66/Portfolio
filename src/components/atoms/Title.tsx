@@ -1,15 +1,14 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { CommonProps } from 'types/CommonProps';
+import { StyleProps } from 'types/StyleProps';
 
-type Props = {
+type TitleProps = Omit<JSX.IntrinsicElements['h1'], 'ref'>;
+
+export type Props = TitleProps & {
   text: string;
 };
 
-const TitleStyle = styled.h1<{
-  width?: string;
-  margin?: string;
-}>`
+const TitleStyle = styled.h1<StyleProps>`
   width: ${(props) => props.width};
   margin: ${(props) => props.margin};
   line-height: 1;
@@ -17,14 +16,10 @@ const TitleStyle = styled.h1<{
   letter-spacing: 0.1em;
 `;
 
-const Title: FC<Props & CommonProps> = (props: Props & CommonProps) => {
-  const { text, margin, width } = props;
+const Title: FC<Props & StyleProps> = (props: Props & StyleProps) => {
+  const { text, ...titleProps } = props;
 
-  return (
-    <TitleStyle width={width} margin={margin}>
-      {text}
-    </TitleStyle>
-  );
+  return <TitleStyle {...titleProps}>{text}</TitleStyle>;
 };
 
 export default Title;

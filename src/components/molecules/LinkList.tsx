@@ -1,32 +1,26 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import Link from 'components/atoms/Link';
-import { CommonProps } from 'types/CommonProps';
-
-type LinkIcon = {
-  href: string;
-  text: string;
-};
+import Link, { Props as LinkProps } from 'components/atoms/Link';
+import { StyleProps } from 'types/StyleProps';
 
 export type Props = {
-  items: LinkIcon[];
+  items: LinkProps[];
 };
 
-const DivStyle = styled.div<{
-  width?: string;
-  margin?: string;
-}>`
+const DivStyle = styled.div<StyleProps>`
   width: ${(props) => props.width};
   margin: ${(props) => props.margin};
 `;
 
-const Navigation: FC<Props & CommonProps> = (props: Props & CommonProps) => {
-  const { items, width, margin } = props;
+const Navigation: FC<Props & StyleProps> = (props: Props & StyleProps) => {
+  const { items, ...divProps } = props;
 
   return (
-    <DivStyle width={width} margin={margin}>
+    <DivStyle {...divProps}>
       {items.map((item) => (
-        <Link href={item.href} text={item.text} margin="0 20px 0 0" />
+        <Link href={item.href} margin="0 20px 0 0">
+          {item.children}
+        </Link>
       ))}
     </DivStyle>
   );
